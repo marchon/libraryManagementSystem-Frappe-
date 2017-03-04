@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
 from frappe.utils.data import nowdate, getdate
+from frappe.model.naming import make_autoname
 
 class LibraryMembership(Document):
 	def validate(self):
@@ -16,3 +17,10 @@ class LibraryMembership(Document):
 		member = frappe.get_doc("Library Member", self.library_member)
 		if getdate(self.to_date) < getdate(nowdate()):
 			member.update_status('Inactive')
+
+
+	def autoname(self):
+		self.name=make_autoname('LM/.####')
+
+	
+			

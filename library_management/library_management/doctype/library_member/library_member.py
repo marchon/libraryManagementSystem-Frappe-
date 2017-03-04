@@ -25,3 +25,5 @@ class LibraryMember(Document):
 	def update_status(self, status):
 		self.status = status
 		self.save()
+
+	

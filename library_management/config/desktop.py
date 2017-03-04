@@ -18,11 +18,20 @@ def get_data():
 			"type": "module",
 			"label": _("Rahib")
 		},
-{
+		{
 			"module_name": "Test",
 			"color": "#589494",
 			"icon": "oction oction-book",
 			"type": "module",
 			"label": _("Test")
+		},
+
+		
+		{
+			"module_name": "NewModule",
+			"color": "#589494",
+			"icon": "oction oction-book",
+			"type": "module",
+			"label": _("New Module")
 		}
 	]

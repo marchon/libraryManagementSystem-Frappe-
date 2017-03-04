@@ -26,3 +26,13 @@ class LibraryTransaction(Document):
             if not last_transaction or last_transaction[0].transaction_type!="Issue":
                 frappe.throw(_("Cannot return article not issued"))
 
+    def on_submit(self):
+        article = frappe.get_doc("Article",self.article)
+        if self.transaction_type == "Issue":
+            article.status = "Return";
+            article.save()
+        elif self.transaction_type == "Return":
+            article.status = "Issue";
+            article.save()
+        else: frappe.msgprint("Please select transaction type")
+    
